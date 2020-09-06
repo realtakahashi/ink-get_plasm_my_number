@@ -39,6 +39,12 @@ mod get_plasm_my_number {
             self.check_plasm_my_number(caller)
         }
 
+        /// get present number
+        #[ink(message)]
+        fn get_present_number(&self) -> u128 {
+            *self.present_number.get()
+        }
+
         /// check my plasm number. If you have not get number, you get zero value.
         fn check_plasm_my_number(&self, address: AccountId) -> u128 {
             match self.numbers.get(&address) {
